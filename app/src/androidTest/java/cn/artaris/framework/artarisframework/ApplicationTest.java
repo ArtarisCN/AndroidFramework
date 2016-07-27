@@ -1,4 +1,4 @@
-package cn.artaris.framework.artarisframework;
+package cn.artaris.framework;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

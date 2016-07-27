@@ -1,4 +1,4 @@
-package cn.artaris.framework.artarisframework;
+package cn.artaris.framework;
 
 import org.junit.Test;
 
