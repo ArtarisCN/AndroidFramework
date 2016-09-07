@@ -16,6 +16,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data android:value="57cd1609959d696ef7000e22" android:name="BUG_HD_SDK_GENERAL_KEY" />
+
     </application>
+
+    <!-- 必选 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+
+    <!-- 可选 -->
+    <uses-permission android:name="android.permission.GET_TASKS"></uses-permission>
 
 </manifest>

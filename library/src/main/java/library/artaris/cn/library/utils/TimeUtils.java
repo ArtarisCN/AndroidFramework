@@ -19,7 +19,7 @@ import static library.artaris.cn.library.utils.ConstUtils.SEC;
  *     desc  : 时间相关的工具类
  * </pre>
  */
-public class TimeUtils {
+public final class TimeUtils {
 
     /**
      * <p>在工具类中经常使用到工具类的格式化描述，这个主要是一个日期的操作类，所以日志格式主要使用 SimpleDateFormat的定义格式.</p>

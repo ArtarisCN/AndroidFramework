@@ -21,7 +21,7 @@ import java.text.DecimalFormat;
 /**
  * Created by Gh0st on 2016/6/2 002.
  */
-public class StringUtils {
+public final class StringUtils {
     /**
      * The pyvalue.
      */

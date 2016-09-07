@@ -38,7 +38,7 @@ import java.util.Map;
  * Create by h4de5ing 2016/5/7 007
  * checked
  */
-public class JsonUtils {
+public final class JsonUtils {
     public static String toJson(Object obj) {
         Gson gson = new Gson();
         return gson.toJson(obj);

@@ -8,7 +8,7 @@ package library.artaris.cn.library.utils;
  *     desc  : 常量相关工具类
  * </pre>
  */
-public class ConstUtils {
+public final class ConstUtils {
 
     private ConstUtils() {
         throw new UnsupportedOperationException("u can't fuck me...");

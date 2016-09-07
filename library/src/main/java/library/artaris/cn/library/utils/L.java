@@ -37,7 +37,7 @@ import javax.xml.transform.stream.StreamSource;
  * Created by Gh0st on 2016/6/7 007.
  * https://github.com/ZhaoKaiQiang/KLog
  */
-public class L {
+public final class L {
     public static String TAG = "ghost";
     public static boolean LOG_DEBUG = true;
     private static final String LINE_SEPARATOR = System.getProperty("line.separator");

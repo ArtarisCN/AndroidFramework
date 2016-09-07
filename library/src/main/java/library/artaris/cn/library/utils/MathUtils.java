@@ -8,7 +8,7 @@ import java.math.BigDecimal;
  * Allen
  * float double 数值不能计算
  */
-public class MathUtils {
+public final class MathUtils {
 
     // 默认除法运算精度
     private static final int DEF_DIV_SCALE = 10;

@@ -15,11 +15,12 @@ import android.webkit.WebViewClient;
 /**
  * Created by Rick on 16/7/27.
  */
-public class BaseWebViewActivity extends ArtarisActivity {
+public class BaseWebViewActivity extends BaseActivity {
     public static final String WEB_URL = "url";
     public static final String WEB_Title = "title";
 
     private WebView mWebView;
+    private int mWebViewContentID;
 
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
@@ -27,8 +28,45 @@ public class BaseWebViewActivity extends ArtarisActivity {
         mWebView.setWebChromeClient(mWebChromeClient);
         mWebView.setWebViewClient(mWebViewClient);
         mWebView.getSettings().setJavaScriptEnabled(true);
+
+        if(mWebViewContentID != 0)
+            mWebView = (WebView)findViewById(mWebViewContentID);
     }
 
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            if(mWebView.canGoBack()){
+                mWebView.goBack();
+            }
+            else{
+                finish();
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public static void startWebViewActivty(Activity context, String url, String title){
+        Intent webIntent = new Intent(context, BaseWebViewActivity.class);
+        webIntent.putExtra(BaseWebViewActivity.WEB_URL, url);
+        webIntent.putExtra(BaseWebViewActivity.WEB_Title, title);
+        context.startActivity(webIntent);
+    }
+
+    protected int getWebViewContentID(){
+        return mWebViewContentID;
+    }
+
+    protected void setWebViewContentID(int webViewContentID){
+        if(webViewContentID != 0)
+            mWebViewContentID = webViewContentID;
+
+    }
+
+
+    //=======================WebView Client Start=========================================
     private WebChromeClient mWebChromeClient = new WebChromeClient(){
         public void onProgressChanged(WebView view, int progress)
         {
@@ -58,25 +96,24 @@ public class BaseWebViewActivity extends ArtarisActivity {
         }
     };
 
+    //=======================WebView Client Finish=========================================
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK){
-            if(mWebView.canGoBack()){
-                mWebView.goBack();
-            }
-            else{
-                finish();
-            }
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
+    //=======================WebView Function Start=========================================
+
+    public String getThisUrl(){
+        return mWebView.getUrl();
     }
 
-    public static void startWebViewActivty(Activity context, String url, String title){
-        Intent webIntent = new Intent(context, BaseWebViewActivity.class);
-        webIntent.putExtra(BaseWebViewActivity.WEB_URL, url);
-        webIntent.putExtra(BaseWebViewActivity.WEB_Title, title);
-        context.startActivity(webIntent);
+    public void reloadThisWenView(){
+        mWebView.reload();
     }
+
+    public void clearWebViewCache(boolean includeDiskFiles){
+        mWebView.clearCache(includeDiskFiles);
+    }
+
+
+    //=======================WebView Function Finish=========================================
+
+
 }

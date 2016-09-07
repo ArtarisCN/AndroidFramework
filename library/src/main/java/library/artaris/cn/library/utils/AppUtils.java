@@ -48,7 +48,7 @@ import java.util.regex.Pattern;
  * getRootPermission 获得root权限
  */
 
-public class AppUtils {
+public final class AppUtils {
 
     public static class AppInfo {
 

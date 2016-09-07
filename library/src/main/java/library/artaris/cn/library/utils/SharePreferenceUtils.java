@@ -24,7 +24,7 @@ import android.content.SharedPreferences.Editor;
  * Create by h4de5ing 2016/5/7 007
  * checked
  */
-public class SharePreferenceUtils {
+public final class SharePreferenceUtils {
     private static final String FILE_NAME = "artaris_preference";
 
     public static void setSP(Context context, String key, Object object) {

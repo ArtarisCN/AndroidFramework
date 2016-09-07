@@ -21,7 +21,7 @@ import java.util.Locale;
  * Created by Rick on 16/6/8.
  */
 
-public class DateUtils {
+public final class DateUtils {
     private static final SimpleDateFormat DATE_FORMAT_DATETIME = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final SimpleDateFormat DATE_FORMAT_DATE = new SimpleDateFormat("yyyy-MM-dd");
     private static final SimpleDateFormat DATE_FORMAT_TIME = new SimpleDateFormat("HH:mm:ss");

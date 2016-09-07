@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 
 import com.google.common.eventbus.EventBus;
 
-import library.artaris.cn.library.activity.ArtarisActivity;
-import library.artaris.cn.library.core.ArtarisApplication;
+import library.artaris.cn.library.activity.BaseActivity;
+import library.artaris.cn.library.core.BaseApplication;
 import library.artaris.cn.library.widgets.ShowToast;
 
 
@@ -20,7 +20,7 @@ import library.artaris.cn.library.widgets.ShowToast;
  * Created by Rick on 16/8/24.
  */
 public class ArtarisFragment extends Fragment {
-    private ArtarisActivity mActivity;
+    private BaseActivity mActivity;
     protected Resources mResources;
     protected EventBus mEventBus;
     protected ShowToast mToast;
@@ -30,7 +30,7 @@ public class ArtarisFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mActivity = (ArtarisActivity)getActivity();
+        mActivity = (BaseActivity)getActivity();
         mResources = mActivity.getResources();
         mToast = new ShowToast(mActivity);
         mEventBus = getArtarisApplication().getEventBus();
@@ -73,8 +73,8 @@ public class ArtarisFragment extends Fragment {
     }
     //=========================Fragment Lifecycle End===================
 
-    protected ArtarisApplication getArtarisApplication(){
-        return ((ArtarisActivity) getActivity()).getArtarisApplication();
+    protected BaseApplication getArtarisApplication(){
+        return ((BaseActivity) getActivity()).getArtarisApplication();
     }
 
     public ActionBar getActionBar(){

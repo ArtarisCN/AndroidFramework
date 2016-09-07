@@ -6,20 +6,23 @@ import android.content.Context;
 import com.google.common.eventbus.EventBus;
 
 import library.artaris.cn.library.constant.ArtarisConstant;
+import library.artaris.cn.library.http.HttpRequestManager;
 
 /**
  * Created by Rick on 16/8/24.
  */
-public class ArtarisApplication extends Application {
+public class BaseApplication extends Application {
 
     private EventBus mEventBus;
     private static Context mApplicationContext;
+    private HttpRequestManager mNetworkManager;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        initFramework();
         mApplicationContext = getApplicationContext();
+
+        initFramework();
     }
 
     @Override
@@ -36,13 +39,19 @@ public class ArtarisApplication extends Application {
 
     private void initFramework(){
         mEventBus = new EventBus(ArtarisConstant.ARTARIS_EVENTBUS);
+        HttpRequestManager.initVolleyQueue(getBaseApplicationContext(), mEventBus);
+        mNetworkManager = HttpRequestManager.getInstance();
     }
 
     public EventBus getEventBus() {
         return mEventBus;
     }
 
-    public static Context getArtarisApplicationContext() {
+//    public NetworkManager getNetworkManager() {
+//        return mNetworkManager;
+//    }
+
+    public static Context getBaseApplicationContext() {
         return mApplicationContext;
     }
 

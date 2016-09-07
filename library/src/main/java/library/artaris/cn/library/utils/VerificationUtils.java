@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
  * Create by h4de5ing 2016/5/21 021
  * https://github.com/sharinghuang/ASRabbit/blob/7350ea1c212946633316d36760c7088728dc2730/baselib/src/main/java/com/ht/baselib/utils/FormatVerificationUtils.java
  */
-public class VerificationUtils {
+public final class VerificationUtils {
     /**
      * 判断姓名格式
      * 真实姓名可以是汉字,也可以是字母,但是不能两者都有,也不能包含任何符号和数字
